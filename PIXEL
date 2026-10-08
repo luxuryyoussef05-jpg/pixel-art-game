@@ -1,0 +1,23 @@
+-- Script de base pour un jeu de Pixel Art (Générateur de grille)
+local tailleGrille = 10 -- Le tableau fera 10x10 pixels
+local taillePixel = 2 -- Taille de chaque petit bloc
+
+-- Boucle pour créer la grille
+for x = 1, tailleGrille do
+    for y = 1, tailleGrille do
+        local pixel = Instance.new("Part")
+        
+        -- Configuration du pixel
+        pixel.Size = Vector3.new(taillePixel, taillePixel, 1) -- Un petit carré plat
+        pixel.Position = Vector3.new(x * taillePixel, y * taillePixel, 10)
+        pixel.Anchored = true -- Pour qu'il ne tombe pas
+        pixel.Color = Color3.fromRGB(255, 255, 255) -- Couleur blanche de base
+        pixel.Material = Enum.Material.SmoothPlastic
+        
+        -- On lui donne un nom et on le fait apparaître
+        pixel.Name = "Pixel_" .. x .. "_" .. y
+        pixel.Parent = workspace
+    end
+end
+
+print("La toile de pixel art est prête !")
